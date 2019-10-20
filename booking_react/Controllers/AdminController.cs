@@ -54,7 +54,29 @@ namespace booking_react.Controllers
         private IDataRepository<Hotel> _hotelRepository;
         #endregion
 
-        public static List<HotelModel> _hotelsOnServer = new List<HotelModel>();
+        public static List<HotelModel> _hotelsOnServer = new List<HotelModel>()
+        {
+            new HotelModel()
+            {
+                HotelId = 1,
+                HotelName = "Hotel_1",
+                CityId = 1,
+                CityName = "City_1",
+                HotelCoordinates = "00 00 00",
+                RaitingId = 1,
+                RaitingDescription = "1 star"
+            },
+            new HotelModel()
+            {
+                HotelId = 2,
+                HotelName = "Hotel_2",
+                CityId = 2,
+                CityName = "City_2",
+                HotelCoordinates = "00 00 00",
+                RaitingId = 2,
+                RaitingDescription = "2 star"
+            },
+        };
         #region Public constructors
         public AdminController()
         {
@@ -63,21 +85,9 @@ namespace booking_react.Controllers
         #endregion
 
         #region Public methods
-        public IEnumerable<HotelModel> Hotel()
+        public HotelModel Hotel()
         {
-            var hotels = new List<HotelModel>();
-            var hotel = new HotelModel()
-            {
-                HotelId = 1,
-                HotelName = "HotelName",
-                CityId = 2,
-                CityName = "CityName",
-                HotelCoordinates = "00 00 00",
-                RaitingId = 3,
-                RaitingDescription = "1 star"
-            };
-            hotels.Add(hotel);
-            return hotels;
+            return _hotelsOnServer.First();
             //return View(_hotelRepository.GetAll().ToList().Select(e => new HotelModel()
             //{
             //    HotelId = e.ID,
@@ -93,19 +103,7 @@ namespace booking_react.Controllers
         
         [HttpGet]
         public IEnumerable<HotelModel> GetHotels()
-        {
-            var hotels = new List<HotelModel>();
-            var hotel = new HotelModel()
-            {
-                HotelId = 1,
-                HotelName = "HotelName",
-                CityId = 2,
-                CityName = "CityName",
-                HotelCoordinates = "00 00 00",
-                RaitingId = 3,
-                RaitingDescription = "1 star"
-            };
-            _hotelsOnServer.Add(hotel);
+        {                   
             return _hotelsOnServer;
             //return Json(_hotelRepository.GetAll().ToList().Select(e => new HotelModel()
             //{
