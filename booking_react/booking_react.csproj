@@ -29,7 +29,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Booking.BL\Booking.BL.csproj" />
     <ProjectReference Include="..\Booking.Common\Booking.Common.csproj" />
-    <ProjectReference Include="..\Booking.DAL\Booking.DAL.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
